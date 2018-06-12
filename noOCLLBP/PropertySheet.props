@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>F:\Program Files %28x86%29\Opencv310_2\opencv\mybuild\install\include\opencv2;F:\Program Files %28x86%29\Opencv310_2\opencv\mybuild\install\include\opencv;F:\Program Files %28x86%29\Opencv310_2\opencv\mybuild\install\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>F:\Program Files %28x86%29\Opencv310_2\opencv\mybuild\install\x86\vc14\staticlib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>IlmImf.lib;IlmImfd.lib;ippicvmt.lib;libjasper.lib;libjasperd.lib;libjpeg.lib;libjpegd.lib;libpng.lib;libpngd.lib;libtiff.lib;libtiffd.lib;libwebp.lib;libwebpd.lib;opencv_calib3d310.lib;opencv_calib3d310d.lib;opencv_core310.lib;opencv_core310d.lib;opencv_features2d310.lib;opencv_features2d310d.lib;opencv_flann310.lib;opencv_flann310d.lib;opencv_highgui310.lib;opencv_highgui310d.lib;opencv_imgcodecs310.lib;opencv_imgcodecs310d.lib;opencv_imgproc310.lib;opencv_imgproc310d.lib;opencv_ml310.lib;opencv_ml310d.lib;opencv_objdetect310.lib;opencv_objdetect310d.lib;opencv_photo310.lib;opencv_photo310d.lib;opencv_shape310.lib;opencv_shape310d.lib;opencv_stitching310.lib;opencv_stitching310d.lib;opencv_superres310.lib;opencv_superres310d.lib;opencv_ts310.lib;opencv_ts310d.lib;opencv_video310.lib;opencv_video310d.lib;opencv_videoio310.lib;opencv_videoio310d.lib;opencv_videostab310.lib;opencv_videostab310d.lib;zlib.lib;zlibd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup />
+</Project>
