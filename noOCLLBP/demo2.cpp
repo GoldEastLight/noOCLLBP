@@ -33,7 +33,7 @@ string nestedCascadeName = "../../data/haarcascades/haarcascade_eye_tree_eyeglas
 
 string cascadeName_haar = "D:/opencv300/opencv/mybuild/bin/Release/dt0905_haar/cascade.xml";//在刘永才电脑上训练的。
 
-string cascadeName_lbp = "cascade.xml"; // 调整尾部
+string cascadeName_lbp = "cascade3.xml"; // "cascade_niguang2.xml";// "cascade3.xml"; //"cascade.xml"; // 调整尾部
 
 
 char videoName[1200];
@@ -92,7 +92,7 @@ int main(int argc, const char** argv)
 	char imageName[1200];
 
 
-	int idxStart = 10015212;//100628;
+	int idxStart = 10002655;// 10015212;//100628;
 	int idxEnd = idxStart + 20000;
 
 	int stepFrm = 0;
@@ -109,14 +109,12 @@ int main(int argc, const char** argv)
 		//sprintf(imageName,"E:/Project/LDW1080P/GrayImages/1021Fit/%d.jpg", imgIdx);			//  单个图像测试
 		//sprintf(imageName,"E:/Project/LDW1080P/GrayImages/1025YiZhuangXiaWu/%d.jpg", imgIdx);			//  单个图像测试
 
-		sprintf(imageName, "M:\\新摄像头相机质量调试_视频采集\\20180409DAY2/C%d.bmp", imgIdx);  // 100000.bmp
+		//sprintf(imageName, "M:\\新摄像头相机质量调试_视频采集\\20180409DAY4\\C%d.bmp", imgIdx);  // 100000.bmp
 
+	//sprintf(imageName, "I:\\00A样本采集图像201806\\白天\\0524-上班\\C%7d.bmp", imgIdx);  // 100000.bmp
+		//sprintf(imageName, "I:\\00A样本采集图像201806\\白天\\0524-上班\\C%7d.bmp", imgIdx);  // 100000.bmp
+		sprintf(imageName, "L:\\调试摄像头路普\\20180424上班逆光飞度-1-6mm\\C%7d.bmp", imgIdx);
 
-
-																				  //cout<<imageName<<endl;
-
-
-																				  //  
 		image = imread(imageName, 0);
 
 		if (image.empty())
@@ -124,16 +122,17 @@ int main(int argc, const char** argv)
 			continue;
 		}
 		scale = 1.0;
-		double angle = -5;
-		Point2f center(image.cols / 2, image.rows / 2);
-		Mat rot = getRotationMatrix2D(center, angle, 1);
-		Rect bbox = RotatedRect(center, image.size(), angle).boundingRect();
+		//double angle = -5;
+		//Point2f center(image.cols / 2, image.rows / 2);
+		//Mat rot = getRotationMatrix2D(center, angle, 1);
+		//Rect bbox = RotatedRect(center, image.size(), angle).boundingRect();
 
-		rot.at<double>(0, 2) += bbox.width / 2.0 - center.x;
-		rot.at<double>(1, 2) += bbox.height / 2.0 - center.y;
+		//rot.at<double>(0, 2) += bbox.width / 2.0 - center.x;
+		//rot.at<double>(1, 2) += bbox.height / 2.0 - center.y;
 
-		Mat dst;
-		warpAffine(image, dst, rot, bbox.size());
+		//Mat dst;
+		//warpAffine(image, dst, rot, bbox.size());
+		
 
 
 		detectAndDraw(image, cascade_lbp, nestedCascade, scale, tryflip);
@@ -230,14 +229,15 @@ void detectAndDraw(Mat& img, CascadeClassifier& cascade,
 
 	t = (double)cvGetTickCount();
 	cascade.detectMultiScale(smallImg, cars,
-		1.1, 2, 0
+		1.1, 4, 0
 		//|CASCADE_FIND_BIGGEST_OBJECT
 		//|CASCADE_DO_ROUGH_SEARCH
 		| CASCADE_SCALE_IMAGE
 		| CASCADE_DO_CANNY_PRUNING
 		,
-		Size(32, 28)
-		//Size(30,24)
+		//Size(32, 28)
+		Size(60,48),
+		Size(500,400)
 	);
 
 	t = (double)cvGetTickCount() - t;
